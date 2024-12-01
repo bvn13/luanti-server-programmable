@@ -1,6 +1,7 @@
 services:
   minetest-server:
-    image: lscr.io/linuxserver/minetest:latest
+    #image: lscr.io/linuxserver/minetest:latest
+    build: ./
     container_name: minetest-server
     deploy:
       restart_policy:
