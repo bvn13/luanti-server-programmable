@@ -1,0 +1,15 @@
+services:
+    # https://claytonerrington.com/blog/dockerize-luanti/
+    minetest-server:
+        image: lscr.io/linuxserver/minetest:latest
+        container_name: minetest-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Moscow
+      - CLI_ARGS=--gameid minetest --port 30000
+    volumes:
+      - ~/minetest/:/config/.minetest
+    ports:
+      - 30000:30000/udp
+    restart: unless-stopped
