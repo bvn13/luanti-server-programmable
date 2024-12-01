@@ -4,12 +4,12 @@ services:
         image: lscr.io/linuxserver/minetest:latest
         container_name: minetest-server
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Moscow
-      - CLI_ARGS=--gameid minetest --port 30000
+        - PUID=1000
+        - PGID=1000
+        - TZ=Europe/Moscow
+        - CLI_ARGS=--gameid minetest --port 30000
     volumes:
-      - ~/minetest/:/config/.minetest
+        - ~/minetest/:/config/.minetest
     ports:
-      - 30000:30000/udp
+        - 30000:30000/udp
     restart: unless-stopped
