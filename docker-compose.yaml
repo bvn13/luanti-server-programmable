@@ -1,15 +1,21 @@
 services:
-    # https://claytonerrington.com/blog/dockerize-luanti/
-    minetest-server:
-        image: lscr.io/linuxserver/minetest:latest
-        container_name: minetest-server
+  minetest-server:
+    image: lscr.io/linuxserver/minetest:latest
+    container_name: minetest-server
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 2
     environment:
-        - PUID=1000
-        - PGID=1000
-        - TZ=Europe/Moscow
-        - CLI_ARGS=--gameid minetest --port 30000
-    volumes:
-        - ~/minetest/:/config/.minetest
+      PUID: '1000'
+      TZ: Europe/Moscow
+      PGID: '1000'
+      CLI_ARGS: '--gameid minetest --port 30000'
     ports:
-        - 30000:30000/udp
-    restart: unless-stopped
+      - 30000:30000/udp
+    volumes:
+      - ${DATA}:/config/.minetest/
