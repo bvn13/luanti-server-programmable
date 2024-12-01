@@ -14,7 +14,7 @@ services:
       PUID: '1000'
       TZ: Europe/Moscow
       PGID: '1000'
-      CLI_ARGS: '--gameid minetest --port 30000'
+      CLI_ARGS: '--gameid Minetest --port 30000'
     ports:
       - 30000:30000/udp
     volumes:
