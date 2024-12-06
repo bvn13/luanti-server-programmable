@@ -1,6 +1,6 @@
 services:
   minetest-server:
-    #image: lscr.io/linuxserver/minetest:latest
+    #image: ghcr.io/linuxserver/minetest:latest
     build: ./
     container_name: minetest-server
     deploy:
@@ -17,6 +17,7 @@ services:
       PGID: '1000'
       CLI_ARGS: '--gameid minetest_game --port 30000'
     ports:
+      - 29999:29999
       - 30000:30000/udp
     volumes:
       - ${DATA}:/config/.minetest/
