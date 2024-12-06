@@ -8,7 +8,7 @@ It is based on [official minetest docker image](https://github.com/minetest/mine
 
 ## How does it work?
 
-Docker image includes lua-socket addon to provide possibility to listen to the TCP port.
+Docker image includes lua-socket addon to provide a possibility to listen to the TCP port.
 
 It's strongly necessary for [mineysocket](https://github.com/bvn13/mineysocket/tree/dev) to be run.
 
