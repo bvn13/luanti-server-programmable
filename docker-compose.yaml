@@ -1,6 +1,5 @@
 services:
   minetest-server:
-    #image: ghcr.io/linuxserver/minetest:latest
     build: ./
     container_name: minetest-server
     deploy:
