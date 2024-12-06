@@ -6,7 +6,7 @@ It's a Luanti (minetest) server with additionally included lua libraries.
 
 It is based on [official minetest docker image](https://github.com/minetest/minetest/blob/master/Dockerfile) distributing [by maintainers](https://github.com/minetest/minetest/blob/master/doc/docker_server.md).
 
-## How does it works?
+## How does it work?
 
 Docker image includes lua-socket addon to provide possibility to listen to the TCP port.
 
