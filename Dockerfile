@@ -2,7 +2,8 @@
 
 FROM ghcr.io/linuxserver/minetest:latest
 
-ARG no-cache cached
+#ARG GAME_NAME
+#ENV CLI_ARGS="--gameid $GAME_NAME"
 
 RUN apk add --no-cache luajit lua5.1-socket
 
@@ -13,7 +14,7 @@ RUN apk add --no-cache luajit lua5.1-socket
 RUN echo "#!/usr/bin/env bash" > /usr/local/bin/start_luanti
 #RUN echo "export IPV4=\$(/usr/local/bin/ipv4)" >> /usr/local/bin/start_luanti
 #RUN echo "echo \$IPV4" >> /usr/local/bin/start_luanti
-RUN echo "/usr/bin/luantiserver --config /config/.minetest/main-config/minetest.conf" >> /usr/local/bin/start_luanti
+RUN echo "/usr/bin/luantiserver --config /config/.minetest/main-config/minetest.conf --gameid \$GAME_NAME --worldname \$GAME_NAME" >> /usr/local/bin/start_luanti
 RUN chmod o+x /usr/local/bin/start_luanti
 
 ENTRYPOINT ["/usr/local/bin/start_luanti"]

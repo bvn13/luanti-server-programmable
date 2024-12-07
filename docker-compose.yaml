@@ -11,10 +11,11 @@ services:
       update_config:
         parallelism: 2
     environment:
+      GAME_NAME: ${GAME_NAME}
       PUID: '1000'
       TZ: Europe/Moscow
       PGID: '1000'
-      CLI_ARGS: '--gameid minetest_game --port 30000'
+      #CLI_ARGS: '--gameid minetest_game --port 30000'
     ports:
       - 29999:29999
       - 30000:30000/udp
