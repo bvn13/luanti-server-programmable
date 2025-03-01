@@ -1,6 +1,6 @@
 # https://github.com/minetest/minetest/blob/master/Dockerfile
 
-FROM linuxserver/minetest:latest
+FROM linuxserver/minetest:5.10.0
 
 #ARG GAME_NAME
 #ENV CLI_ARGS="--gameid $GAME_NAME"
